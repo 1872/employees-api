@@ -15,6 +15,7 @@ class EmployeesController < ApplicationController
       last_name: params[:last_name],
       email: params[:email]
     )
-    render "show.json.jbuilder"
+    # render "show.json.jbuilder"
+    render json: {message: "Success!"}
   end
 end
