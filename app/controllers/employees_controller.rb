@@ -21,4 +21,16 @@ class EmployeesController < ApplicationController
       render json: {message: "Could not create an employee!"}
     end
   end
+
+  def update
+    @employee = Employee.find_by(id: params[:id])
+    @employee.update(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      birthdate: params[:birthdate],
+      ssn: params[:ssn]
+    )
+    render "show.json.jbuilder"
+  end
 end
