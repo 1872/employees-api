@@ -1,5 +1,9 @@
 json.id employee.id
-json.firstName employee.first_name
+if employee.first_name == "Ephraim"
+  json.firstName employee.first_name + " (son of Ishmael)"
+else
+  json.firstName employee.first_name
+end
 json.lastName employee.last_name
 json.fullName employee.full_name
 json.birthDate employee.birthdate
