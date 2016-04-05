@@ -10,12 +10,15 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee = Employee.create(
+    @employee = Employee.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email]
     )
-    # render "show.json.jbuilder"
-    render json: {message: "Success!"}
+    if @employee.save
+      render "show.json.jbuilder"
+    else
+      render json: {message: "Could not create an employee!"}
+    end
   end
 end
